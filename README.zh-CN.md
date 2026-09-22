@@ -4,6 +4,18 @@
 
 Daymark 是一个本地优先的个人 AI 记录与复盘系统。它将原始记录作为证据保存，让 AI 模型整理杂乱的自然语言输入，并生成可追溯的日报和周报。
 
+## 项目预览
+
+以下截图全部使用虚构 Demo 数据。
+
+![Daymark 记录首页](docs/images/daymark-home.png)
+
+![AI 整理后的记录](docs/images/daymark-record.png)
+
+![日历复盘](docs/images/daymark-review.png)
+
+![当前重点聚合](docs/images/daymark-focus.png)
+
 ## 功能
 
 - 聊天式记录，在 AI 处理前先保存原始文字。
