@@ -14,12 +14,16 @@ These screenshots use synthetic demo data only.
     <td align="center"><img src="docs/images/daymark-timeline.png" width="420" alt="Timeline"><br><sub>Timeline</sub></td>
   </tr>
   <tr>
-    <td align="center"><img src="docs/images/daymark-review.png" width="420" alt="Calendar review"><br><sub>Calendar review</sub></td>
+    <td align="center"><img src="docs/images/daymark-calendar-month.png" width="420" alt="Calendar month view"><br><sub>Calendar month view</sub></td>
+    <td align="center"><img src="docs/images/daymark-calendar-week.png" width="420" alt="Calendar week view"><br><sub>Calendar week view</sub></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="docs/images/daymark-calendar-day.png" width="420" alt="Calendar day view"><br><sub>Calendar day view</sub></td>
     <td align="center"><img src="docs/images/daymark-ask.png" width="420" alt="Ask yourself"><br><sub>Ask yourself</sub></td>
   </tr>
   <tr>
     <td align="center"><img src="docs/images/daymark-dark.png" width="420" alt="Dark mode settings"><br><sub>Dark mode</sub></td>
-    <td></td>
+    <td align="center"><img src="docs/images/daymark-review.png" width="420" alt="Review summary"><br><sub>Review summary</sub></td>
   </tr>
 </table>
 

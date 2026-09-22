@@ -14,12 +14,16 @@ Daymark 是一个本地优先的个人 AI 记录与复盘系统。它将原始�
     <td align="center"><img src="docs/images/daymark-timeline.png" width="420" alt="时间线"><br><sub>时间线</sub></td>
   </tr>
   <tr>
-    <td align="center"><img src="docs/images/daymark-review.png" width="420" alt="日历复盘"><br><sub>日历复盘</sub></td>
+    <td align="center"><img src="docs/images/daymark-calendar-month.png" width="420" alt="日历月视图"><br><sub>日历月视图</sub></td>
+    <td align="center"><img src="docs/images/daymark-calendar-week.png" width="420" alt="日历周视图"><br><sub>日历周视图</sub></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="docs/images/daymark-calendar-day.png" width="420" alt="日历日视图"><br><sub>日历日视图</sub></td>
     <td align="center"><img src="docs/images/daymark-ask.png" width="420" alt="问自己"><br><sub>问自己</sub></td>
   </tr>
   <tr>
     <td align="center"><img src="docs/images/daymark-dark.png" width="420" alt="深色模式设置"><br><sub>深色模式</sub></td>
-    <td></td>
+    <td align="center"><img src="docs/images/daymark-review.png" width="420" alt="复盘总结"><br><sub>复盘总结</sub></td>
   </tr>
 </table>
 
