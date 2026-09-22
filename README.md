@@ -1,6 +1,20 @@
 # Daymark
 
+[English](README.md) | [简体中文](README.zh-CN.md)
+
 Daymark is a local-first personal AI journal and review system. It keeps the original note as evidence, lets an AI model organize messy natural-language entries, and builds traceable daily and weekly reviews.
+
+## Preview
+
+These screenshots use synthetic demo data only.
+
+![Daymark journal](docs/images/daymark-home.png)
+
+![AI-organized record](docs/images/daymark-record.png)
+
+![Calendar review](docs/images/daymark-review.png)
+
+![Current focus rollups](docs/images/daymark-focus.png)
 
 ## Features
 
