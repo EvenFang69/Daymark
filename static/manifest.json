@@ -1,0 +1,9 @@
+{
+  "name": "Daymark · Personal AI Journal",
+  "short_name": "Daymark",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f7f8fa",
+  "theme_color": "#f7f8fa",
+  "icons": []
+}

@@ -1,0 +1,15 @@
+services:
+  personal-journal:
+    build: .
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      JOURNAL_HOST: 0.0.0.0
+      JOURNAL_PORT: 8765
+      JOURNAL_DB_PATH: /app/data/journal.sqlite3
+    ports:
+      - "8765:8765"
+    volumes:
+      - ./data:/app/data
+      - ./backups:/app/backups

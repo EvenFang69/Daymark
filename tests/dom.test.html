@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<title>Journal DOM Regression Tests</title>
+<link rel="stylesheet" href="/styles.css?v=37">
+<div id="results" role="status">Running</div>
+<div id="app"></div>
+<script src="/app.js?v=37"></script>
+<script>
+const results = [];
+function check(name, condition) {
+  results.push(`${condition ? 'PASS' : 'FAIL'}: ${name}`);
+  if (!condition) throw new Error(name);
+}
+(async () => { try {
+  state.session = {business_date: '2026-09-09', settings: {}};
+  state.calendarCursor = state.calendarSelectedDate = '2026-09-09';
+  render();
+  const shell = document.querySelector('.app-shell');
+  const nav = document.querySelector('.bottom-nav');
+  const composer = document.querySelector('#composer-input');
+  composer.value = state.composer = 'Unsent draft';
+  composer.focus();
+  composer.setSelectionRange(3, 5);
+  render();
+  check('render preserves composer identity, focus, selection and draft',
+    composer === document.querySelector('#composer-input') && document.activeElement === composer && composer.selectionStart === 3 && composer.value === 'Unsent draft');
+  const fixture = {id: 999, record_date:'2026-09-09', created_at:'2026-09-09', ai_state:'ready', status:'needs_followup', raw_text:'Original evidence', analysis:{summary:'One question', needs_followup:true, followup_question:'Decided or still considering?'}};
+  state.entries = [fixture];
+  syncRecordFeed();
+  const card = document.querySelector('.entry-card');
+  const reply = document.querySelector('.followup-input');
+  reply.value = 'Answer in progress';
+  reply.focus();
+  patchEntryCard(999);
+  check('polling preserves card and followup textarea', card === document.querySelector('.entry-card') && reply === document.querySelector('.followup-input') && document.activeElement === reply && reply.value === 'Answer in progress');
+  state.page = 'timeline'; state.timelineEntries = [fixture];
+  render();
+  check('navigation preserves the shell and navigation buttons', shell === document.querySelector('.app-shell') && nav === document.querySelector('.bottom-nav'));
+  state.rawOpen[999] = true;
+  patchEntryCard(999);
+  check('timeline raw reveal opens without a record feed', document.querySelector('.raw-reveal').classList.contains('is-open') && document.querySelector('.raw-toggle').getAttribute('aria-expanded') === 'true');
+  state.rawOpen[999] = false;
+  patchEntryCard(999);
+  check('collapsed evidence is inert and hidden to accessibility', document.querySelector('.raw-reveal').hasAttribute('inert') && document.querySelector('.raw-reveal').getAttribute('aria-hidden') === 'true');
+  state.settingsOpen = true;
+  updateOverlays();
+  const panel = document.querySelector('.settings-modal');
+  const name = panel.querySelector('input');
+  name.value = 'Unsaved preference';
+  name.focus();
+  state.error = 'Test status update';
+  updateOverlays();
+  check('status updates preserve modal identity and unsaved form', panel === document.querySelector('.settings-modal') && name.value === 'Unsaved preference' && document.activeElement === name);
+  check('modal locks background scrolling and interaction', document.body.style.position === 'fixed' && document.querySelector('main').hasAttribute('inert'));
+  check('raw reveal has a transition', getComputedStyle(document.querySelector('.raw-reveal')).transitionProperty.includes('grid-template-rows'));
+  state.settingsOpen = false;
+  state.error = '';
+  updateOverlays();
+  state.page = 'record';
+  state.entries = [fixture];
+  render();
+  let dateRequest = null;
+  api = async (path, options = {}) => {
+    if (path === '/api/entries/999' && options.method === 'PATCH') {
+      dateRequest = { path, body: JSON.parse(options.body) };
+      fixture.record_date = dateRequest.body.record_date;
+      return { entry: fixture };
+    }
+    if (path === '/api/entries') return { entries: [fixture] };
+    return {};
+  };
+  openDialog({ type: 'date', id: 999, value: fixture.record_date, title: '修改归档日期', submitLabel: '保存日期' });
+  const dateForm = document.querySelector('#dialog-form');
+  dateForm.querySelector('input[name="value"]').value = '2026-09-08';
+  dateForm.requestSubmit();
+  await new Promise(resolve => setTimeout(resolve, 500));
+  check('delegated date form submits the actual form element', dateRequest?.path === '/api/entries/999' && dateRequest.body.record_date === '2026-09-08');
+  check('successful date edit closes its dialog', !state.dialog && !document.querySelector('#dialog-form'));
+  const reportHtml = renderReport({ id: 42, status: 'ready', content: { title: '日报', sections: [] }, feedback: [] });
+  check('private reports expose correction without product feedback clutter', reportHtml.includes('修正内容') && !reportHtml.includes('有帮助'));
+} catch (error) {
+  results.push('ERROR: ' + error.message);
+} finally {
+  document.querySelector('#results').textContent = results.join('\n');
+  document.querySelector('#results').style.whiteSpace = 'pre-wrap';
+} })();
+</script>
+</html>
