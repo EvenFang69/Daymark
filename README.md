@@ -8,13 +8,20 @@ Daymark is a local-first personal AI journal and review system. It keeps the ori
 
 These screenshots use synthetic demo data only.
 
-![Daymark journal](docs/images/daymark-home.png)
-
-![AI-organized record](docs/images/daymark-record.png)
-
-![Calendar review](docs/images/daymark-review.png)
-
-![Current focus rollups](docs/images/daymark-focus.png)
+<table>
+  <tr>
+    <td align="center"><img src="docs/images/daymark-record.png" width="420" alt="AI-organized record"><br><sub>AI-organized record</sub></td>
+    <td align="center"><img src="docs/images/daymark-timeline.png" width="420" alt="Timeline"><br><sub>Timeline</sub></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="docs/images/daymark-review.png" width="420" alt="Calendar review"><br><sub>Calendar review</sub></td>
+    <td align="center"><img src="docs/images/daymark-ask.png" width="420" alt="Ask yourself"><br><sub>Ask yourself</sub></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="docs/images/daymark-dark.png" width="420" alt="Dark mode settings"><br><sub>Dark mode</sub></td>
+    <td></td>
+  </tr>
+</table>
 
 ## Features
 

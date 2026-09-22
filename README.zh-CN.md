@@ -8,13 +8,20 @@ Daymark 是一个本地优先的个人 AI 记录与复盘系统。它将原始�
 
 以下截图全部使用虚构 Demo 数据。
 
-![Daymark 记录首页](docs/images/daymark-home.png)
-
-![AI 整理后的记录](docs/images/daymark-record.png)
-
-![日历复盘](docs/images/daymark-review.png)
-
-![当前重点聚合](docs/images/daymark-focus.png)
+<table>
+  <tr>
+    <td align="center"><img src="docs/images/daymark-record.png" width="420" alt="AI 整理后的记录"><br><sub>AI 整理后的记录</sub></td>
+    <td align="center"><img src="docs/images/daymark-timeline.png" width="420" alt="时间线"><br><sub>时间线</sub></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="docs/images/daymark-review.png" width="420" alt="日历复盘"><br><sub>日历复盘</sub></td>
+    <td align="center"><img src="docs/images/daymark-ask.png" width="420" alt="问自己"><br><sub>问自己</sub></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="docs/images/daymark-dark.png" width="420" alt="深色模式设置"><br><sub>深色模式</sub></td>
+    <td></td>
+  </tr>
+</table>
 
 ## 功能
 
